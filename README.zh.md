@@ -1,6 +1,6 @@
 # 声音复刻 API
 
-![许可证](https://img.shields.io/github/license/yourusername/voice-clone-api)
+![许可证](https://img.shields.io/github/license/tobyqu/voice-clone-api)
 ![Python 版本](https://img.shields.io/badge/python-3.8%2B-blue)
 ![FastAPI](https://img.shields.io/badge/FastAPI-0.104.1-green)
 
@@ -26,5 +26,3 @@
 - API 端点与服务实现解耦
 - 每个 API 功能使用独立文件管理
 - FastAPI 提供高性能异步支持
-
-## 📚 目录结构 

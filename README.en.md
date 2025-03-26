@@ -24,5 +24,3 @@ This project adopts a modular design that easily supports multiple voice service
 - Decoupling of API endpoints and service implementations
 - Each API function managed in a separate file
 - High-performance async support with FastAPI
-
-## 📚 Directory Structure 
