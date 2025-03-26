@@ -1,3 +1,10 @@
+"""
+DashScope 声音服务提供者实现
+
+基于阿里云语音合成服务，详细文档：
+https://help.aliyun.com/zh/model-studio/developer-reference/speech-synthesis-and-speech-recognition/
+"""
+
 import dashscope
 from typing import Dict, List, Any, Optional, Tuple, Union, ByteString
 from dashscope.audio.tts_v2 import VoiceEnrollmentService, SpeechSynthesizer, AudioFormat
@@ -6,7 +13,11 @@ from app.core.config import settings
 from app.services.providers.base import VoiceProviderBase
 
 class DashScopeProvider(VoiceProviderBase):
-    """DashScope 声音服务提供者"""
+    """DashScope 声音服务提供者
+    
+    使用阿里云 DashScope 平台的语音合成服务
+    官方文档: https://help.aliyun.com/zh/model-studio/developer-reference/cosyvoice
+    """
     
     def __init__(self):
         # 设置 API Key
