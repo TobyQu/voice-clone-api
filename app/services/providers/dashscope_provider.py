@@ -91,20 +91,22 @@ class DashScopeProvider(VoiceProviderBase):
         
         # 处理文本输入
         if isinstance(text, list):
-            # 如果是文本数组，合并所有结果
-            combined_audio = bytearray()
-            request_id = None
+            # 如果是文本数组，先合并成一个文本，使用换行符分隔
+            # DashScope可能不直接支持数组输入，尝试合并处理
+            combined_text = "\n".join(text)
+            print(f"合并处理 {len(text)} 条文本，总长度: {len(combined_text)}")
             
-            for text_item in text:
-                audio = synthesizer.call(text_item)
-                combined_audio.extend(audio)
-                # 保存最后一个请求ID
-                request_id = synthesizer.get_last_request_id()
+            audio = synthesizer.call(combined_text)
+            if audio is None:
+                raise Exception("合并文本音频合成失败，返回内容为空")
                 
-            return bytes(combined_audio), request_id
+            return audio, synthesizer.get_last_request_id()
         else:
             # 单个文本字符串
             audio = synthesizer.call(text)
+            # 检查audio是否为None
+            if audio is None:
+                raise Exception("音频合成失败，返回内容为空")
             return audio, synthesizer.get_last_request_id()
         
     @property

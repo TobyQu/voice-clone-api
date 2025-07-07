@@ -5,7 +5,7 @@ from pydantic import BaseModel, Field, HttpUrl
 class CreateVoiceRequest(BaseModel):
     url: HttpUrl = Field(..., description="用于克隆的音频文件URL")
     prefix: str = Field(..., description="音色自定义前缀，仅允许数字和小写字母，小于十个字符")
-    target_model: str = Field("cosyvoice-v1", description="克隆音色对应的语音合成模型版本")
+    target_model: str = Field("cosyvoice-v2", description="克隆音色对应的语音合成模型版本")
 
 class CreateVoiceResponse(BaseModel):
     voice_id: str
